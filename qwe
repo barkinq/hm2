@@ -1,0 +1,28 @@
+def gelismis_hesap_makinesi():
+    while True:
+        print("\nGELİŞMİŞ HESAP MAKİNESİ")
+        print("İşlemler: + - * / ve parantez () kullanabilirsiniz")
+        print("Çıkmak için 'q' yazın")
+
+        giris = input("Hesaplanacak ifadeyi giriniz: ")
+
+        if giris.lower() == 'q':
+            print("Program sonlandırılıyor...")
+            break
+
+        giris = giris.replace(" "," ")
+
+        if not all(c.isdigit() or c in '+-*/.()' for c in giris):
+            print("Hata: Geçersiz karakter!")
+            continue
+
+        try:
+            sonuc = eval(giris)
+            print(f"Sonuç: {giris} = {sonuc}")
+        except ZeroDivisionError:
+            print("Hata: Sıfıra bölme!")
+        except:
+            print("Hata: Geçersiz ifade!")
+
+
+gelismis_hesap_makinesi()
